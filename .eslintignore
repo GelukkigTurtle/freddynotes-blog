@@ -1,0 +1,12 @@
+gatsby-config.js
+gatsby-node.js
+
+node_modules
+public
+post
+assets
+
+# for jest
+*.config.js
+*.test.js
+loadershim.js

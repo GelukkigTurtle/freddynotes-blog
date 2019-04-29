@@ -1,5 +1,5 @@
 module.exports = {
-  host: 'https://gatsby-sseon-starter.netlify.com',
-  sitemap: 'https://gatsby-sseon-starter.netlify.com/sitemap.xml',
+  host: 'https://freddynotes.com',
+  sitemap: 'https://reddynotes.com/sitemap.xml',
   policy: [{ userAgent: '*' }]
 }

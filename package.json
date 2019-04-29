@@ -6,6 +6,7 @@
   "repository": "https://github.com/SeonHyungJo/gatsby-sseon-starter",
   "license": "MIT",
   "dependencies": {
+    "core-js": "^2.6.5",
     "disqus-react": "^1.0.5",
     "gatsby": "^2.1.17",
     "gatsby-link": "^2.0.15",
@@ -24,7 +25,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
-    "react-icons": "~3.4.0"
+    "react-icons": "^2.2.7"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

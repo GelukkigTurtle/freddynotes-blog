@@ -7,7 +7,7 @@ import { classNames } from 'util/commonUtil'
 import 'css/header.scss'
 
 /**
- * @description 상단 헤더 부분 구현
+ * @description
  */
 const Header = ({ title = 'freddyNotes', navList = [] }) => (
   <div className={classNames('HeaderContainer')}>
@@ -16,8 +16,7 @@ const Header = ({ title = 'freddyNotes', navList = [] }) => (
       {title}
     </DefaultButton>
 
-    {/* 상위 버튼 넣을 공간 또는 다른 것을 넣을 공간 */}
-    {/* 기본적으로 nav를 넣기 위한 공간 */}
+
     <div className={classNames('HeaderNav')}>
       {navList.map(navItem => {
         return (

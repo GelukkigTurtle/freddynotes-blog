@@ -8,9 +8,12 @@ import Header from 'component/Header'
 import 'css/prism-tomorrow.scss'
 import 'css/baseLayout.scss'
 
+import favicon32 from "../images/favicon.png";
+
 export default class Layout extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
+
 
     this.state = {
       navList: [
@@ -34,26 +37,29 @@ export default class Layout extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { location, children } = this.props
     const { navList } = this.state
 
     return (
       <>
-        {/* head custom 진행 */}
         <Helmet
-          title="Gatsby for SSEON"
+          title="freddynotes"
           meta={[
-            { name: 'description', content: 'sseon theme' },
-            { name: 'keywords', content: 'sseon, blog, theme' },
+            { name: 'description', content: 'freddynotes blog - Freddy Ayala Software Developer' },
+            { name: 'keywords', content: 'freddynotes, blog, theme' },
             {
               name: 'viewport',
               content: 'width=device-width, initial-scale=1'
             }
           ]}
+          link={[
+            { rel: "icon", type: "image/png", sizes: "16x16", href: `${favicon32}` },
+            { rel: "icon", type: "image/png", sizes: "32x32", href: `${favicon32}` },
+            { rel: "shortcut icon", type: "image/png", href: `${favicon32}` },
+          ]}
         >
-          {/* 한국어 설정 진행 */}
-          <html lang="ko" />
+          <html lang="en" />
         </Helmet>
 
         {location.pathname !== '/' && (

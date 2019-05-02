@@ -16,7 +16,6 @@ const Header = ({ title = 'freddyNotes', navList = [] }) => (
       {title}
     </DefaultButton>
 
-
     <div className={classNames('HeaderNav')}>
       {navList.map(navItem => {
         return (

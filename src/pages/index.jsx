@@ -37,7 +37,10 @@ const Index = props => {
             >
               <FaGithub size="1.5rem" />
             </SNSButton>
-            <SNSButton key={'Linkedin_button'} to={'https://www.linkedin.com/in/freddy-ayala/'}>
+            <SNSButton
+              key={'Linkedin_button'}
+              to={'https://www.linkedin.com/in/freddy-ayala/'}
+            >
               <FaLinkedin size="1.5rem" />
             </SNSButton>
           </div>

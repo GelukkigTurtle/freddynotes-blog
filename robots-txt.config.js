@@ -1,5 +1,5 @@
 module.exports = {
   host: 'https://freddynotes.com',
-  sitemap: 'https://reddynotes.com/sitemap.xml',
+  sitemap: 'https://freddynotes.com/sitemap.xml',
   policy: [{ userAgent: '*' }]
 }

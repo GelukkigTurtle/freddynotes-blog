@@ -4,9 +4,9 @@ const path = require('path')
 module.exports = {
   pathPrefix: process.env.CI ? `/${name}` : '/',
   siteMetadata: {
-    author: 'SeonHyungJo',
-    title: 'Renewal Blog',
-    siteUrl: 'https://gatsby-sseon-starter.netlify.com'
+    author: 'Freddy Ayala',
+    title: 'freddyNotes Blog',
+    siteUrl: 'https://github.com/GelukkigTurtle/freddynotes-blog'
   },
   plugins: [
     'gatsby-plugin-catch-links',
@@ -115,9 +115,8 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
-    // 이미지를 불러오기 위한 Plugin
+    `gatsby-transformer-sharp`,
     'gatsby-plugin-sharp',
-    // 2019-01-01 Sass 기능 추가
     'gatsby-plugin-sass'
   ]
 }

@@ -5,6 +5,7 @@ date: "2019-04-27T13:35:13.234Z"
 title: "Duran Sanatorium [Costa Rica Trip]"
 tags: ["Costa Rica", "Trip"]
 category: "post"
+image: "images/1.jpg"
 ---
 
 The Duran Sanatorium is an abandon and touristic place located in Prusia Cartago Costa Rica.

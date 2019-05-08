@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { DiscussionEmbed } from 'disqus-react'
 import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 
 import Layout from 'component/Layout'
 import { DefaultButton, TagButton } from 'component/Button'
@@ -50,6 +51,7 @@ export default function Template (props) {
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
           />
+          <Img fluid={props.data.imageOne.childImageSharp.fluid} />
 
           {/* Post Tags */}
           <TagButton list={tags || []} />
@@ -69,6 +71,20 @@ Template.propTypes = {
 
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
+    imageOne: file(relativePath: { eq: "images/1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    imageTwo: file(relativePath: { eq: "images/2.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       id

@@ -30,4 +30,5 @@ node_modules
 public/
 .cache/
 .DS_Store
-
+.history
+package-lock.json

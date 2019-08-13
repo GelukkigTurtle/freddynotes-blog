@@ -21,7 +21,7 @@ const StyledPostDate = styled.time`
 const PostTemplate = ({ data }) => {
   const { frontmatter, code } = data.mdx;
   // Disqus config
-  const disqusShortname = 'freddynotes.com'
+  const disqusShortname = 'freddynotes'
   const disqusConfig = {
     identifier: frontmatter.id,
     title: frontmatter.title

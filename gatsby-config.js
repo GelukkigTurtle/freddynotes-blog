@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    author: 'Freddy Ayala',
+    title: 'freddyNotes Blog',
+    siteUrl: 'https://freddynotes.com'
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-styled-components'
@@ -87,7 +92,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA--1'
+        trackingId: 'UA-145597846-1'
       }
     },
     'gatsby-plugin-twitter',

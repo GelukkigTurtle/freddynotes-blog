@@ -1,8 +1,10 @@
 {
-  "name": "prestonrichey.com",
+  "name": "freddynotes.com",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "author": "Freddy Ayala <fredd.seb8@gmail.com>",
+  "repository": "https://github.com/GelukkigTurtle/freddynotes-blog",
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build --verbose",
@@ -16,6 +18,7 @@
     "@prichey/hello-wasm": "^0.1.1",
     "ajv": "^6.8.1",
     "babel-plugin-styled-components": "^1.10.0",
+    "disqus-react": "^1.0.6",
     "gatsby": "^2.2.8",
     "gatsby-mdx": "^0.4.0",
     "gatsby-plugin-google-analytics": "^2.0.13",

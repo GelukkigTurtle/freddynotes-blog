@@ -3,18 +3,11 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import { MDXRenderer } from 'gatsby-mdx';
+import { DiscussionEmbed } from "disqus-react"
 
 import Layout from './../components/Layout';
-// import TextPostBody from './../components/TextPostBody';
-// import ProjectLinks from './../components/ProjectLinks';
 
-// const StyledTitleWrap = styled.div`
-//   margin-bottom: 1em;
-// `;
 
-// const StyledTitle = styled.h1`
-//   margin-bottom: 0;
-// `;
 
 const StyledPostDate = styled.time`
   color: #999;
@@ -27,12 +20,18 @@ const StyledPostDate = styled.time`
 
 const PostTemplate = ({ data }) => {
   const { frontmatter, code } = data.mdx;
+  // Disqus config
+  const disqusShortname = 'freddynotes.com'
+  const disqusConfig = {
+    identifier: frontmatter.id,
+    title: frontmatter.title
+  }
 
   return (
     <Layout>
       {frontmatter.title && (
         <Helmet>
-          <title>Preston Richey | {frontmatter.title}</title>
+          <title>Freddy Ayala | {frontmatter.title}</title>
         </Helmet>
       )}
       {frontmatter.title && (
@@ -50,6 +49,8 @@ const PostTemplate = ({ data }) => {
       <h1>{frontmatter.title}</h1>
       <MDXRenderer>{code.body}</MDXRenderer>
       <StyledPostDate>{frontmatter.date}</StyledPostDate>
+      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+
     </Layout>
   );
 };

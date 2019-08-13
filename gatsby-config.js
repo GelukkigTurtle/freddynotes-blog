@@ -1,122 +1,116 @@
-const { name } = require('./package.json')
-const path = require('path')
-
 module.exports = {
-  pathPrefix: process.env.CI ? `/${name}` : '/',
-  siteMetadata: {
-    author: 'Freddy Ayala',
-    title: 'freddyNotes Blog',
-    siteUrl: 'https://github.com/GelukkigTurtle/freddynotes-blog'
-  },
   plugins: [
-    'gatsby-plugin-catch-links',
-    'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        title: 'Blog',
-        name: 'Blog Starter',
-        short_name: 'Blog',
-        start_url: '/',
-        background_color: '#fff',
-        theme_color: '#663399',
-        display: 'standalone',
-        icon: 'assets/logo.jpg'
-      }
+      resolve: 'gatsby-plugin-styled-components'
     },
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        output: '/some-other-sitemap.xml',
-        exclude: ['/posts/*', '/acticle/*', '/aboutme', '/category/*'],
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-    
-            allSitePage {
-              edges {
-                node {
-                  path
-                }
-              }
-            }
-        }`
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/post`,
-        name: 'post'
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        src: path.join(__dirname, 'src'),
-        pages: path.join(__dirname, 'src/pages'),
-        component: path.join(__dirname, 'src/components'),
-        css: path.join(__dirname, 'src/css'),
-        util: path.join(__dirname, 'src/util'),
-        post: path.join(__dirname, 'post')
-      }
-    },
+    'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          // {
+          //   resolve: 'gatsby-remark-component',
+          //   options: { components: ['zoom-image', 'hidden', 'countup'] }
+          // },
           {
-            resolve: 'gatsby-remark-images',
-            options: {
-              linkImagesToOriginal: false
-            }
+            resolve: 'gatsby-remark-autolink-headers'
           },
           {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: false
-            }
+            resolve: 'gatsby-remark-prismjs'
           },
           {
-            resolve: 'gatsby-remark-emojis',
+            resolve: 'gatsby-remark-smartypants'
+          },
+          // {
+          //   resolve: 'gatsby-remark-images',
+          //   options: {
+          //     // It's important to specify the maxWidth (in pixels) of
+          //     // the content container as this plugin uses this as the
+          //     // base for generating different widths of each image.
+          //     maxWidth: 1200,
+          //     // Remove the default behavior of adding a link to each
+          //     // image.
+          //     linkImagesToOriginal: false
+          //   }
+          // },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
             options: {
-              // Deactivate the plugin globally (default: true)
-              active: true,
-              // Add a custom css class
-              class: 'emoji-icon',
-              // Select the size (available size: 16, 24, 32, 64)
-              size: 64,
-              // Add custom styles
-              styles: {
-                display: 'inline',
-                margin: '0',
-                'margin-top': '1px',
-                position: 'relative',
-                top: '5px',
-                width: '25px'
-              }
+              ignoreFileExtensions: []
             }
           }
         ]
       }
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        configFile: 'robots-txt.config.js'
+        name: 'pages',
+        path: `${__dirname}/src/pages/`
       }
     },
-    'gatsby-plugin-react-helmet',
-    `gatsby-transformer-sharp`,
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-sass'
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/src/content/posts`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'projects',
+        path: `${__dirname}/src/content/projects`
+      }
+    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'posts',
+    //     path: `${__dirname}/src/pages/blog`
+    //   }
+    // },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'projects',
+    //     path: `${__dirname}/src/pages/projects`
+    //   }
+    // },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#0000ff'
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA--1'
+      }
+    },
+    'gatsby-plugin-twitter',
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: ['.md', '.mdx'],
+        defaultLayouts: {
+          default: require.resolve('./src/components/Layout.js')
+        },
+        gatsbyRemarkPlugins: [
+          { resolve: 'gatsby-remark-autolink-headers' },
+          { resolve: 'gatsby-remark-prismjs', options: {} },
+          { resolve: 'gatsby-remark-smartypants' }
+          // {
+          //   resolve: 'gatsby-remark-copy-linked-files',
+          //   options: {
+          //     ignoreFileExtensions: []
+          //   }
+          // }
+        ]
+        // mdPlugins: [require('gatsby-remark-prismjs')]
+      }
+    }
   ]
-}
+};

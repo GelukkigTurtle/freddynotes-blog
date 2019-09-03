@@ -7,8 +7,10 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   try {
     if (node.internal.type === 'Mdx') {
       const { sourceInstanceName } = getNode(node.parent);
-
+      console.log('ACTIONS node.parent ------->>');
+      console.log(node);
       let slug = '';
+      console.log('sourceInstanceName ==>' + sourceInstanceName);
       switch (sourceInstanceName) {
         case 'projects':
           slug = createFilePath({
@@ -59,6 +61,24 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
             node,
             name: 'type',
             value: 'post'
+          });
+          break;
+        case 'articles':
+          slug = createFilePath({
+            node,
+            getNode
+          });
+
+          createNodeField({
+            node,
+            name: 'slug',
+            value: `/article${slug}`
+          });
+
+          createNodeField({
+            node,
+            name: 'type',
+            value: 'article'
           });
           break;
         case 'pages':
@@ -112,11 +132,14 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       result.data.allMdx.edges.forEach(({ node }) => {
-        const templatePath =
-          node.fields.type === 'project'
-            ? './src/templates/project.js'
-            : './src/templates/post.js';
-
+        var templatePath = '';
+        if (node.fields.type === 'project') {
+          templatePath = './src/templates/project.js';
+        } else if (node.fields.type === 'article') {
+          templatePath = './src/templates/article.js';
+        } else {
+          templatePath = './src/templates/post.js';
+        }
         createPage({
           path: node.fields.slug,
           component: path.resolve(templatePath),

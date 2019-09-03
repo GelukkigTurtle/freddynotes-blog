@@ -87,6 +87,11 @@ const Nav = () => {
     <StyledNav>
       <StyledList>
         <ListElement>
+          <NavItem to="/articles/" activeClassName={activeClassName}>
+            articles
+          </NavItem>
+        </ListElement>
+        <ListElement>
           <NavItem to="/blog/" activeClassName={activeClassName}>
             blog
           </NavItem>

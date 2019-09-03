@@ -81,7 +81,6 @@ const Layout = ({ children }) => {
           name="twitter:image"
           content="https://www.freddynotes.com/social-meta.png"
         />
-        <meta name="twitter:creator" content="@prestonrichey" />
       </Helmet>
 
       <StyledHeader>

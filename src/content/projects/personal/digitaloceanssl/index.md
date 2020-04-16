@@ -27,8 +27,8 @@ $sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 openssl req -new -newkey rsa:2048 -nodes -keyout /etc/ssl/private/playt-selfsigned.key -out ~/serverKeys/domain.csr
 
 ```
-Then you need to copy the contend of domain.csr to your host domain e.g: goDaddy, wait for they approval and 
-download the files and move them to your host to serverKeys/provider.
+Then you need to copy the content of domain.csr to your host domain e.g: goDaddy, wait for they approval and 
+download the files and move them to your host to ~/serverKeys/provider.
 
 Rename the download file -> alphanumeric.crt to yourdomain.crt, and do the following commands:
 

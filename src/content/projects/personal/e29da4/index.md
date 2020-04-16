@@ -5,7 +5,7 @@ lede: "A Vinebot that commented rainbow hearts on Westboro Baptist Church Vines.
 link: ""
 repo: "https://gist.github.com/prichey/cb161f121301ef4f2f22"
 order: 1
-publish: true
+publish: false
 lang: "Python"
 ---
 

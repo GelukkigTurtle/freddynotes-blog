@@ -5,7 +5,7 @@ lede: "A Twitterbot to remind people to clean up dead Meerkats."
 link: "https://twitter.com/roadkillbot"
 repo: "https://github.com/prichey/roadkillbot"
 order: 2
-publish: true
+publish: false
 lang: "Ruby"
 ---
 

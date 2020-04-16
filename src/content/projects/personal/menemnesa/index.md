@@ -5,7 +5,7 @@ lede: 'A Twitterbot that responded, "It is known..."'
 link: "https://twitter.com/menemnesa"
 repo: "https://github.com/prichey/itisknown"
 order: 8
-publish: true
+publish: false
 lang: "Node.js"
 ---
 

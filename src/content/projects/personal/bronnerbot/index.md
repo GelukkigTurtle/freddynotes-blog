@@ -5,7 +5,7 @@ date: "2015"
 link: "https://twitter.com/bronnerbot"
 repo: "https://github.com/prichey/bronnerbot"
 order: 3
-publish: true
+publish: false
 lang: "Ruby"
 ---
 

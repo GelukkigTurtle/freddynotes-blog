@@ -241,7 +241,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     /* Create pagination for gallery (which is also used by infinite scroll). */
-    const countImagesPerPage = 20
+    const countImagesPerPage = 100
     const countPages = Math.ceil(nextFreeId / countImagesPerPage)
     for (var currentPage = 1; currentPage <= countPages; currentPage++) {
       /* Create paths "/", "/2", "/3", ... */

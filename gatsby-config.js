@@ -27,6 +27,13 @@ module.exports = {
           {
             resolve: 'gatsby-remark-smartypants'
           },
+          {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              name: `images`,
+              path: `${__dirname}/content/images`
+            }
+          },
           // {
           //   resolve: 'gatsby-remark-images',
           //   options: {
@@ -118,4 +125,4 @@ module.exports = {
       }
     }
   ]
-};
+}
